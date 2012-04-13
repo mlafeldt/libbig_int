@@ -1,0 +1,11 @@
+PROJECT("libbig_int" C)
+
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+
+SET(CMAKE_C_FLAGS "-Wall -Werror -O2")
+
+INCLUDE_DIRECTORIES(include)
+FILE(GLOB BIGINT_SRC src/*.c src/low_level_funcs/*.c)
+ADD_LIBRARY(big_int ${BIGINT_SRC})
+
+INSTALL(TARGETS big_int DESTINATION lib)
