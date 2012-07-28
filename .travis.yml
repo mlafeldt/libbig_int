@@ -1,6 +1,8 @@
-language: erlang # no C/shell language support; use least-loaded worker(s)
+language: c
 
-before_install: sudo apt-get install -y cmake
+compiler:
+  - gcc
+  - clang
 
 install:
     - mkdir build
@@ -9,4 +11,4 @@ install:
     - make
     - sudo make install
 
-script: true # no tests yet
+script: "true" # no tests yet
