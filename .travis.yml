@@ -5,10 +5,10 @@ compiler:
   - clang
 
 install:
-    - mkdir build
-    - cd build
-    - cmake ..
-    - make
-    - sudo make install
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make
+  - sudo make install
 
 script: "true" # no tests yet
