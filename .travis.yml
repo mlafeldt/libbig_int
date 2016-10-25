@@ -1,5 +1,7 @@
 language: c
 
+sudo: false
+
 compiler:
   - gcc
   - clang
@@ -8,7 +10,6 @@ install:
   - mkdir build
   - cd build
   - cmake ..
-  - make
-  - sudo make install
+  - make install DESTDIR=$HOME
 
 script: "true" # no tests yet
