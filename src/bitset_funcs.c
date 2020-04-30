@@ -635,8 +635,9 @@ int big_int_scan0_bit(const big_int *a, size_t pos_start, size_t *pos_found)
 */
 int big_int_hamming_distance(const big_int *a, const big_int *b, unsigned int *distance)
 {
-    big_int *tmp = NULL;
     int result = 0;
+
+    big_int *tmp = NULL;
 
     assert(a != NULL);
     assert(b != NULL);

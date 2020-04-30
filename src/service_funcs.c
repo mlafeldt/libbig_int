@@ -76,7 +76,7 @@ static const double log2_inv_table[] = {
 };
 
 /* macros, which adjusts [len] in big_int_create() & big_int_realloc() functions */
-#define LEN_ADJUST do { int i = 0; --len; while (++i && (len >>= 1)); len = (i < sizeof(size_t) * 8) ? (1 << i) : ~(size_t)0; } while(0)
+#define LEN_ADJUST do { size_t i = 0; --len; while (++i && (len >>= 1)); len = (i < sizeof(size_t) * 8) ? ((size_t)1 << i) : ~(size_t)0; } while(0)
 
 /* macros, which tests possible integer overflow for [len] */
 #define LEN_OVERFLOW_CHECK(ret_arg) if ((~(size_t)0) / BIG_INT_WORD_BYTES_CNT < len) { return (ret_arg); }
@@ -576,7 +576,7 @@ int big_int_to_int(const big_int *a, int *value)
         /* integer overflow */
         result = 1;
     }
-    *value = (a->sign == MINUS) ? -((int) num) : num;
+    *value = (a->sign == MINUS) ? -((int) num) : (int) num;
 
     return result;
 }

@@ -44,6 +44,11 @@ void low_level_div(big_int_word *a, big_int_word *a_end,
     assert(a != b);
     assert(c != a && c != b);
 
+    /*
+        a isn't actually used in the algorithm below.
+    */
+    (void)a;
+
     aa = a_end;
     cc = c_end;
     /*
